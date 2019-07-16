@@ -44,5 +44,16 @@ module.exports = {
                 };
                 return args;
             });
+        // 对vue文件中引入的md模块进行处理
+        config.module.rule('md')
+            .test(/\.md/)
+            .use('vue-loader')
+            .loader('vue-loader')
+            .end()
+            .use('vue-markdown-loader')
+            .loader('vue-markdown-loader/lib/markdown-compiler')
+            .options({
+                raw: true
+            });
     }
 };

@@ -14,7 +14,7 @@ module.exports = {
         // 编译输出的二级目录
         assetsSubDirectory: 'static',
         // 产出对外访问路径，实际访问目录为join(assetsPublicPath, assetsSubDirectory)
-        assetsPublicPath: '/demos/',
+        assetsPublicPath: '/docs/',
         // 是否开启 SourceMap，production下不建议开启，开启后影响包的大小
         productionSourceMap: true,
         // 是否对输出的文件开启Gzip压缩
@@ -38,7 +38,7 @@ module.exports = {
         // 编译产出在dist下的路径
         assetsSubDirectory: 'static',
         // 产出对外访问路径，实际访问目录为join(assetsPublicPath, assetsSubDirectory)
-        assetsPublicPath: '/demos/',
+        assetsPublicPath: '/docs/',
         // 代理配置：具体参考https://github.com/chimurai/http-proxy-middleware
         proxyTable: {
             '/custom-api': 'http://www.baidu.com',
@@ -68,9 +68,9 @@ module.exports = {
     entries: {
         home: {
             template: path.resolve(__dirname, '../src/pages/home/index.html'),
-            entry: path.resolve(__dirname, '../src/pages/home/app.js'),
+            entry: path.resolve(__dirname, '../src/pages/home/main.js'),
             filename: 'home.html',
-            title: '示例页面',
+            title: '文档页面',
             chunks: ['vendor', 'common', 'home']
         }
     }

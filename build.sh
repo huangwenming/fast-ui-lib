@@ -16,7 +16,7 @@ echo '============ npm start ============='
 #npm install --registry=http://pnpm.baidu.com
 
 #choose env argument, the default is [build], maybe [qa]
-#choose build modules, the default is '', maybe [legal]
+#choose build modules, the default is '', maybe [demos]
 moduleName=''
 buildMethod='build'
 if [ x$1 != x ]

@@ -15,6 +15,8 @@
     },
     "dependencies": {
         "@vue/component-compiler-utils": "^2.6.0",
+        "github-markdown-css": "^3.0.1",
+        "highlight.js": "^9.15.8",
         "vue": "^2.6.10",
         "vue-router": "^3.0.1"
     },
@@ -35,9 +37,13 @@
         "chai": "^4.1.2",
         "eslint": "^5.8.0",
         "eslint-plugin-vue": "^5.0.0",
+        "fs": "0.0.1-security",
+        "node-filelist": "^1.0.0",
         "node-sass": "^4.9.0",
+        "path": "^0.12.7",
         "postcss-px2rem": "^0.3.0",
         "sass-loader": "^7.0.1",
+        "vue-markdown-loader": "^2.4.1",
         "vue-template-compiler": "^2.6.10",
         "webpack-upload": "^2.1.1"
     },

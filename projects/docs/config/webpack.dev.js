@@ -11,6 +11,8 @@ const config = require('./index.js');
 const commonConfig = require('../../../vue.config.js');
 // 插件：将webpack产出的文件上传到指定的位置
 const WebpackUploadPlugin = require('webpack-upload');
+// 插件：将md文件转成指定的.vue文件
+const MdToVue = require('./plugins/md2vue.js');
 
 // 根据配置文件设置入口文件
 const assetsPublicPath = process.env.NODE_ENV === 'production'
@@ -20,7 +22,16 @@ const assetsSubDirectory = process.env.NODE_ENV === 'production'
 
 // 加入远程发布的配置
 // 判断是否支持远程发送
-let plugins = [];
+let plugins = [
+    new MdToVue({
+        mdFilesDirs: [path.resolve(__dirname, '../../ui/src/components/'),
+            path.resolve(__dirname, '../../ui/src/directives/'),
+            path.resolve(__dirname, '../../ui/src/plugins/')],
+        vueFilesDir: path.resolve(__dirname, '../src/views/'),
+        mdSourceInVue: '@ui/src/',
+        mdPathReplace: 'ui/src/'
+    })
+];
 if (process.env.SUPPORT_REMOTE) {
     const remotes = config.remote;
     const address = process.env.SUPPORT_REMOTE_ADDRESS || 'huangwenming';

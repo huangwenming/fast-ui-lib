@@ -10,7 +10,8 @@ const uiPackage = {
                   desc: '小黄条通知',
                   type: 'component',
                   author: 'hwm',
-                  hasDemo: true
+                  hasDemo: true,
+                  hasDoc: true
               },
               {
                   name: 'Select',
@@ -18,7 +19,8 @@ const uiPackage = {
                   desc: '选择器',
                   type: 'component',
                   author: 'hwm',
-                  hasDemo: true
+                  hasDemo: true,
+                  hasDoc: true
               },
               {
                   name: 'Toast',
@@ -26,7 +28,8 @@ const uiPackage = {
                   desc: 'toast',
                   type: 'plugin',
                   author: 'hwm',
-                  hasDemo: true
+                  hasDemo: true,
+                  hasDoc: true
               },
               {
                   name: 'Dialog',
@@ -34,7 +37,8 @@ const uiPackage = {
                   desc: '弹窗',
                   type: 'plugin',
                   author: 'hwm',
-                  hasDemo: true
+                  hasDemo: true,
+                  hasDoc: true
               }
           ]
       },
