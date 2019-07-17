@@ -95,13 +95,13 @@ let projectConfig = {
                             test: /[\\/]node_modules[\\/]/,
                             chunks: 'initial',
                             priority: 10,
-                            minChunks: 2
+                            minChunks: 1
                         },
                         common: {
                             name: 'common',
                             chunks: 'initial',
                             priority: 2,
-                            minChunks: 2,
+                            minChunks: 1,
                         }
                     }
                 }

@@ -1,34 +1,9 @@
 <template>
     <div class="demo-list-wrapper">
-        <div class="github-btn">
-            <a href="https://github.com/huangwenming/fast-ui-lib" target="_blank" class="github-icon"></a>
-            <p>Github</p>
-        </div>
-        <div class="logo-container">
-            <img src="../assets/images/logo.png" class="logo">
-        </div>
         <div class="title-desc">
             <p class="title">Fast UI Library</p>
             <p class="desc">基于Vue的移动端组件库快速开发template</p>
         </div>
-        <div :class="['demo-list-box', {'unfold': foldStatus[index]}]" v-for="(category, index) in categories" :key="index">
-            <div class="category" @click="toggleFold(index)">
-                <span class="title">{{category.name}}</span>
-                <span class="arrow"></span>
-            </div>
-            <ul v-show="foldStatus[index]">
-                <template v-for="item in category.list">
-                    <li v-if="item.hasDemo !== false" :key="item.name">
-                        <a :href="'./' + item.name" >
-                            {{item.name}}
-                            <span class="desc">{{item.desc}}</span>
-                            <span class="arrow"></span>
-                        </a>
-                    </li>
-                </template>
-            </ul>
-        </div>
-        <div class="version"> 版本号：v{{version}}</div>
     </div>
 </template>
 
@@ -71,6 +46,7 @@
     .demo-list-wrapper {
         position: relative;
         font-size: 28px;
+        padding-top: 200px;
     }
     .github-btn {
         position: absolute;

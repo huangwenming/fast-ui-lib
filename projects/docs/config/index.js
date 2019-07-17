@@ -61,7 +61,7 @@ module.exports = {
             // receiver: 'http://10.64.17.76:8999/receiver',
             receiver: 'http://yq01-mapcarowner-rddev-fe01.epc.baidu.com:8999/receiver',
             // 8096
-            address: '/home/users/huangwenming/hwm/htdocs/demos'
+            address: '/home/users/huangwenming/hwm/htdocs/docs'
         }
     },
     // 入口js与入口模板html映射表

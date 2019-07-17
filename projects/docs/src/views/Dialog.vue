@@ -20,5 +20,7 @@
 </script>
 
 <style scoped>
-
+    .markdown-body {
+        font-size: 20px;
+    }
 </style>
