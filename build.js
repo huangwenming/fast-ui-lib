@@ -4,13 +4,13 @@
  */
 const fs = require('fs');
 const spawn = require('child_process').spawn;
-// 3-1 目前支持的模块名数组，主要是根据projects目录下的文件夹的名字来确定，ui是基础库，不作为项目产出
+// 3-1 目前支持的模块名数组，主要是根据projects目录下的文件夹的名字来确定，common是基础库，不作为项目产出
 let files = fs.readdirSync('./projects');
 // console.log(files);
 let modules = [];
 files.forEach(filename => {
-    // 过滤掉ui项目和非项目文件
-    if (filename !== 'ui' && (!/^\./.test(filename))) {
+    // 过滤掉common项目和非项目文件
+    if (filename !== 'common' && (!/^\./.test(filename))) {
         modules.push(filename);
     }
 });
@@ -35,6 +35,10 @@ for (let module of  modules) {
     // 获取产出环境 && 执行相应的shell命令
     let cmdStr = process.env.NODE_ENV === 'production' ? 'build-real'
         : process.env.NODE_ENV === 'testing' ? 'test-real' : 'serve-real';
+    // 对构建目标是lib的模块进行特殊处理
+    if (process.env.npm_package_libconfig_module === module) {
+        cmdStr = 'build-ui';
+    }
     process.env.MODULE_NAME = module;
     // spawn的使用规则参考：https://juejin.im/post/5a996a87f265da239d48bebc
     let child = spawn('npm', ['run', cmdStr], {

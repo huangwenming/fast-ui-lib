@@ -7,11 +7,15 @@
         "serve-remote": "SUPPORT_REMOTE=true NODE_ENV=development node build.js $1 $2",
         "build": "NODE_ENV=production node build.js $1",
         "build-remote": "SUPPORT_REMOTE=true NODE_ENV=production node build.js $1",
+        "build-ui": "vue-cli-service build --target lib --name fastui --entry ./projects/ui/src/index.js",
         "serve-real": "vue-cli-service serve",
         "build-real": "vue-cli-service build",
         "lint": "vue-cli-service lint",
         "test": "NODE_ENV=testing node build.js ui",
         "test-real": "vue-cli-service test:unit --require tests/unit/pre-setup.js"
+    },
+    "libconfig": {
+        "module": "ui"
     },
     "dependencies": {
         "@vue/component-compiler-utils": "^2.6.0",

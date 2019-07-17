@@ -15,6 +15,13 @@
 截图：  
 ![image](https://gss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/map/pic/item/aa64034f78f0f73651e292ea0455b319ebc41339.jpg)
 
+## 生成库文件
+```
+    npm run build ui
+```
+截图：  
+![image](https://gss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/map/pic/item/f9198618367adab4bf5e25af85d4b31c8601e454.jpg)
+
 ## 新增UI
 1. 在`ui/src`目录下，根据UI的类别（component/directive/plugin）在对应的文件夹下，创建相应的ui文件夹；
 ![image](https://gss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/map/pic/item/738b4710b912c8fc13102826f2039245d788217e.jpg)
