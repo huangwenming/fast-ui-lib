@@ -110,18 +110,17 @@
         border: 0;
         outline: none;
         padding: 10px;
-        position: absolute;
         bottom: 0;
         left: 0;
         text-align: center;
         transition: opacity .3s;
-        width: 284px;
+        width: 50px;
         z-index: 4;
         span {
             background-color: #42b983;
             display: block;
-            margin-bottom: 6px;
-            width: 32px;
+            margin-bottom: 10px;
+            width: 42px;
             height: 4px;
         }
     }
@@ -185,8 +184,11 @@
         @include flex();
         .docs-content {
             flex: 1;
+            min-width: 500px;
+            overflow: scroll;
         }
         .demos-frame {
+            flex-shrink: 0;
             width: 600px;
             padding: 100px 40px;
             height: 1000px;

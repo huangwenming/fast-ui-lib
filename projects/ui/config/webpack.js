@@ -31,7 +31,19 @@ let projectConfig = {
         output: {
             libraryExport: 'default'
         },
+        resolve: {
+            // 路径alias：例如import @/services/a.js，会自动寻找 src/services/a.js
+            alias: {
+                '@': path.resolve(__dirname, '../src'),
+                '@ui': path.resolve(__dirname, '../../ui'),
+                'vue$': 'vue/dist/vue.esm.js'
+            }
+        },
         plugins
+    },
+    chainWebpack: config => {
+        // 首先将commonConfig中的chainWebpack配置merge到具体项目中
+        commonConfig.chainWebpack && commonConfig.chainWebpack.call(projectConfig, config);
     }
 };
 

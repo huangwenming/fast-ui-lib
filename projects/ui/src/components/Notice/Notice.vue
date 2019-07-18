@@ -1,7 +1,7 @@
 <template>
-    <div class="notice-item" :value="value" v-show="visible">
-        <span class="title">{{data.typeCn}}</span>
-        <div class="desc" @click="goToUrl">{{data.text}}</div>
+    <div class="notice-item" :class="{'animation-disappear': showAnimation}" v-show="visible">
+        <span class="type">{{data.type}}</span>
+        <div class="title" @click="clickHandler">{{data.title}}</div>
         <div class="close" @click="close"></div>
     </div>
 </template>
@@ -9,68 +9,60 @@
 <script>
     export default {
         name: 'Notice',
-        props: ['value', 'data'],
+        props: ['isShow', 'data'],
         data() {
             return {
-                visible: false,
+                showAnimation: false
             }
         },
-        mounted() {
-            this.visible = this.value;
+        computed: {
+            visible() {
+                return this.isShow;
+            }
         },
         methods: {
             close() {
-                let me = this;
-                let item = document.querySelector('.notice-item');
-                item.className += " " + 'animation-dispear';
                 // 动画500毫秒后完成，此时关闭提醒条
-                setTimeout(function () {
-                    me.visible = false;
+                this.showAnimation = true;
+                setTimeout(()=> {
+                    this.$emit('close-notice');
                 }, 500);
-                this.$emit('close');
+
             },
-            goToUrl() {
-                this.$emit('click');
-            }
-        },
-        watch:{
-            value(val) {
-                this.visible = val;
-            },
-            visible(val) {
-                this.$emit('input', val);
+            clickHandler() {
+                this.$emit('notice-click');
+                if (this.data.url) {
+                    location.href = this.data.url;
+                }
             }
         }
     }
 </script>
 
-<style>
+<style lang="scss" scoped>
+    @import "../../libs/css/public.scss";
     .notice-item {
-        width: 100%;
-        height: 90px;
-        background-color: #fff;
         overflow: hidden;
-        display: flex;
-        align-items:center;
+        padding: 0 $padding-content-LR;
+        height: $height-cell-one-line;
+        background-color: $card-color-bg;
+        @include flex-center();
     }
-    .notice-item .title {
+    .notice-item .type {
         width: 60px;
         padding: 4px 0 4px 0;
-        margin-left: 30px;
-        color: #ee2630;
+        color: $assist-red-color;
         font-size: 20px;
         text-align: center;
-        border: 1px solid #ee2630; /* no */
+        border: 1px solid $assist-red-color; /* no */
         border-radius: 6px;
     }
-    .notice-item .desc {
-        width: 78%;
-        color: #333;
-        font-size: 28px;
-        padding-left: 10px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+    .notice-item .title {
+        flex: 1;
+        color: $text-color-senior;
+        font-size: $font-size-normal;
+        padding-left: $margin-between-text-icon;
+        @include text-ellipsis();
     }
     .notice-item .close {
         width: 30px;
@@ -78,12 +70,12 @@
         background: url("../../assets/images/close-gray.png") no-repeat;
         background-size: 30px 30px;
     }
-    .animation-dispear {
-        animation: dispear-line 0.5s linear 0s;
+    .animation-disappear {
+        animation: disappear-line 0.5s linear 0s;
     }
-    @keyframes dispear-line {
+    @keyframes disappear-line {
         0% {
-            height: 90px;
+            height: $height-cell-one-line;
         }
         100% {
             height: 0;

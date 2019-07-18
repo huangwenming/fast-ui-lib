@@ -55,5 +55,16 @@ module.exports = {
             .options({
                 raw: true
             });
+        // 引入css主题样式文件
+        config.module.rule('scss')
+            .oneOf('vue-modules')
+            .use('sass-loader')
+            .loader('sass-loader')
+            .tap(options => {
+                // 修改主题样式，可以引入自定义的样式文件
+                // data: `@import "PATH_CUSTOM_SCSS/custom.scss"; @import "@ui/libs/css/public.scss"; `,
+                options.data = `@import "@ui/libs/css/public.scss";`;
+                return options
+            });
     }
 };

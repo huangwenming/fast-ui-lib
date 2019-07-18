@@ -1,6 +1,6 @@
 <template>
     <div class="app-container">
-        <notice :value="true" :data="noticeData"></notice>
+        <notice :isShow="showNotice" :data="noticeData" @notice-click="clickNotice" @close-notice="closeNotice"></notice>
     </div>
 </template>
 
@@ -13,11 +13,20 @@
         },
         data() {
             return {
+                showNotice: true,
                 noticeData: {
                     id: 1,
-                    typeCn: '加分',
-                    text: '购险成功！五月已提升25车主分！'
+                    type: '加分',
+                    title: '购险成功！五月已提升25车主分！'
                 }
+            }
+        },
+        methods: {
+            closeNotice() {
+                this.showNotice = false;
+            },
+            clickNotice() {
+
             }
         }
     }
