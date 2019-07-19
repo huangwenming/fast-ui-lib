@@ -32,11 +32,12 @@ for (let module of  modules) {
     // console.log(module);
     // 根据产出模块，设置vue.conf.js的路径
     process.env.VUE_CLI_SERVICE_CONFIG_PATH = __dirname + '/projects/' + module + '/vue.config.js';
+    // console.log(process.env.VUE_CLI_SERVICE_CONFIG_PATH);
     // 获取产出环境 && 执行相应的shell命令
     let cmdStr = process.env.NODE_ENV === 'production' ? 'build-real'
-        : process.env.NODE_ENV === 'testing' ? 'test-real' : 'serve-real';
+        : process.env.NODE_ENV === 'test' ? 'test-real' : 'serve-real';
     // 对构建目标是lib的模块进行特殊处理
-    if (process.env.npm_package_libconfig_module === module) {
+    if (process.env.npm_package_libconfig_module === module && process.env.NODE_ENV !== 'test') {
         cmdStr = 'build-ui';
     }
     process.env.MODULE_NAME = module;
