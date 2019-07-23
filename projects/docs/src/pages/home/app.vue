@@ -3,7 +3,7 @@
         <nav class="app-nav">
             <ul>
                 <li>
-                    <a href="https://github.com/huangwenming/fast-ui-lib">demos</a>
+                    <a href="https://github.com/huangwenming/fast-ui-lib">Github</a>
                 </li>
             </ul>
         </nav>
@@ -17,7 +17,7 @@
             </button>
             <aside class="sidebar">
                 <h1 class="app-name">
-                    <a href="https://github.com/huangwenming/fast-ui-lib">fast UI</a>
+                    <a href="/docs/home.html">fast UI</a>
                 </h1>
                 <div class="sidebar-nav">
                     <ul v-for="nav in sideNavs">
@@ -54,7 +54,7 @@
             return {
                 forceHideBar: false,
                 sideNavs: uiConfig.categories,
-                demoUrl: 'http://yq01-mapcarowner-rddev-fe01.epc.baidu.com:8096/demos/home.html/index'
+                demoUrl: 'http://106.13.62.215:8000/demos/home.html/index'
             }
         },
         methods: {
@@ -63,7 +63,7 @@
             },
             changeDemoUrl(demoName) {
                 this.$router.push({path: '/' + demoName});
-                this.demoUrl = 'http://yq01-mapcarowner-rddev-fe01.epc.baidu.com:8096/demos/home.html/' + demoName;
+                this.demoUrl = 'http://106.13.62.215:8000/demos/home.html/' + demoName;
                 console.log(this.demoUrl);
             }
         }

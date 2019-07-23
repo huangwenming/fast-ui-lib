@@ -1,4 +1,6 @@
-## 快速构建基于Vue的UI库
+# 快速构建基于Vue的UI库
+[![Build Status](https://api.travis-ci.org/huangwenming/fast-ui-libs.svg?branch=master)](https://github.com/huangwenming/fast-ui-libs/) [![Coverage Status](https://coveralls.io/repos/github/huangwenming/fast-ui-libs/badge.svg?branch=master)](https://coveralls.io/github/huangwenming/fast-ui-libs?branch=master)
+
 > 主要是提供一个组件库的原型，支持demo、文档、单元测试和编译产出等能力，帮助前端开发者快速构建基于Vue的组件库。
 
 ## demo示例
